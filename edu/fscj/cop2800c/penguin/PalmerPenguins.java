@@ -5,6 +5,9 @@
 
 package edu.fscj.cop2800c.penguin;
 
+import java.util.ArrayList;
+import edu.fscj.cop2800c.util.DataWrapper;
+
 public class PalmerPenguins {
     public static void main(String[] args) {
         int numPenguins = 0;
@@ -104,5 +107,18 @@ public class PalmerPenguins {
             }
         }
         
+        System.out.println("\nData Wrapper List:");
+
+        ArrayList<DataWrapper<Penguin>> list = new ArrayList<>();
+
+        for (int i = 1; i <= 8; i++) {
+            Penguin p = analyzer.getPenguinBySampleNum(i);
+            DataWrapper<Penguin> wrapped = new DataWrapper<>(p);
+            list.add(wrapped);
+        }
+
+        if (!list.isEmpty()) {
+            DataWrapper.displayList(list);
+        }
     }
 }
